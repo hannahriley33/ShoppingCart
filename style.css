@@ -1,0 +1,23 @@
+.items {
+    border: solid black 2px;
+    max-width: 250px; 
+    display: flex; 
+    align-items: center;
+   
+}
+
+.image {
+    height: 70px;
+    width: 70px;
+    
+}
+
+ul > p {
+    text-align: center;
+}
+
+button {
+   
+}
+
+

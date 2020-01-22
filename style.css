@@ -1,6 +1,6 @@
 
 
-.items {
+li {
     border: solid black 2px;
     max-width: 200px; 
     display: flex; 
@@ -12,7 +12,7 @@
    
 }
 
-.image {
+img {
     height: 70px;
     width: 70px;
     margin: auto;

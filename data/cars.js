@@ -28,7 +28,7 @@ const tacoma = {
 const mustang = {
     id: 'mustang',
     name: 'Ford Mustang',
-    image: 'assets/mustangPic.png',
+    image: 'assets/mustangPic.jpg',
     description: 'A classic American convertible that is everything every man ever wanted.',
     category: 'classic car',
     price: 31000.00,
@@ -46,7 +46,7 @@ const odyssey = {
 const tesla = {
     id: 'tesla',
     name: 'Tesla S',
-    image: 'assets/teslaPic.png',
+    image: 'assets/teslaPic.jpg',
     description: 'Fully electric 4 door sedan that will make you the envy of all your friends.',
     category: 'electric sedan',
     price: 35000.00,
@@ -60,7 +60,7 @@ const miata = {
     category: 'convertible',
     price: 23000.00,
 
-}
+};
 
 const carList = [
     jetta,

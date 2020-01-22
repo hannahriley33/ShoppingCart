@@ -1,4 +1,14 @@
+* {
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    
+}
 
 li {
     border: solid black 2px;
@@ -27,5 +37,8 @@ button {
    margin: auto;
    justify-content: space-evenly;
 }
+
+
+
 
 

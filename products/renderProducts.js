@@ -1,5 +1,5 @@
 
-function createProducts(cars) {
+export default function createProducts(cars) {
 
     const li = document.createElement('li');
         
@@ -39,5 +39,4 @@ function createProducts(cars) {
 return li;
 
 
-}
-export default createProducts;
+};

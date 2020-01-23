@@ -8,10 +8,9 @@ export const findById = (someId, someArray) => {
         if (someId === thisItem.id) {
         // . . . return the item
             return thisItem;
-        }
-            else 
-            return null;
+        }   
      }
+     return null;
 };
 
 

@@ -1,18 +1,21 @@
-function RenderCartItems(foo, bar)  {
+import {cars} from "../products/renderProducts";
+import {cart} from "../data/cart";
+
+function RenderCartItems(lineItem, cars)  {
     
     const tr = document.createElement('tr');
 
-    const td = document.createElement('td');
-        td.textContent = carList.name;
-        tr.appendChild(td);
+    const tdName = document.createElement('td');
+        td.textContent = cars.name;
+        tr.appendChild(tdName);
 
-    const td1 = document.createElement('td');
-        td1.textContent = cart.quantity;
-        tr.appendChild(td1);
+    const tdQuantity = document.createElement('td');
+        tdQuantity.textContent = cart.quantity;
+        tr.appendChild(tdQuantity);
 
-    const td2 = document.createElement('td');
-        td2.textContent = carList.price;
-        tr.appendChild(td2);
+    const tdPrice = document.createElement('td');
+        tdPrice.textContent = cars.price;
+        tr.appendChild(tdPrice);
 
 return tr;
 

@@ -1,0 +1,11 @@
+.tHeadRow {
+    background-color: rgb(100, 129, 159);
+}
+
+.tFootRow {
+    background-color: rgb(170, 193, 218);
+}
+
+* {
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -36,6 +36,7 @@ div > p {
 button {
    margin: auto;
    justify-content: space-evenly;
+   cursor: pointer;
 }
 
 

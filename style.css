@@ -13,7 +13,6 @@ h1 {
 li {
     border: solid black 2px;
     max-width: 200px; 
-    display: flex; 
     align-items: center;
     border-radius: 15px;
     padding: 0;
@@ -37,6 +36,11 @@ button {
    margin: auto;
    justify-content: space-evenly;
    cursor: pointer;
+}
+
+ul {
+    display: inline-flex;
+    margin: auto;
 }
 
 

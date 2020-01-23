@@ -4,7 +4,7 @@ export const findById = (someId, someArray) => {
         // grab the item at this index
         const thisItem = someArray[i];
       
-        // if the item's id matched OUR id . . 
+        // if the item's id matched our id . . 
         if (someId === thisItem.id) {
         // . . . return the item
             return thisItem;
@@ -13,3 +13,13 @@ export const findById = (someId, someArray) => {
             return null;
      }
 };
+
+
+export const calcLineItem = (quantity, amount) => {
+    return math.Round((quantity * amount) * 100)/100;
+
+   
+   
+
+ 
+}

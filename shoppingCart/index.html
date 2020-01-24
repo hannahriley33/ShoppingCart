@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="styling.css">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <nav>
+        <a href="../index.html">Home</a>
+    </nav>
+    <table>
+        <thead>
+            <tr class="tHeadRow">
+                <th>Item</th>
+                <th>Quantity</th>
+                 <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="AttachCartItemHere">
+            <tr>
+                <td>Jetta</td>
+                <td>3</td>
+                <td>24000</td>
+             </tr>
+        </tbody>
+        <tfoot>
+            <tr class="tFootRow">
+                <td>Order Total</td>
+                <td></td>
+                <td id="order-total">72000</td>
+            </tr>
+        </tfoot>
+      </table>
+      <button type="button">Place Order</button>
+</body>
+<script src="shoppingCart.js" type="module"></script>
+</html>

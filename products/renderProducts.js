@@ -1,3 +1,4 @@
+import { findById } from "../common/utils";
 
 export default function createProducts(cars) {
 
@@ -34,9 +35,39 @@ export default function createProducts(cars) {
 
     const button = document.createElement('button');
         button.textContent = 'Select';
+        button.value = cars.id;
+        button.addEventListener('click', () =>  {
+            let json = localStorage.getItem('shoppingCart');
+            let shoppingCart;
+            if (json) {
+                cart = JSON.parse(json);
+            }
+            else {
+                cart = [];
+            }
+
+            let carLineItem = findById(shoppingCart, cars.id);
+            
+            if (carLineItem) {
+                carLineItem.quantity++
+            }
+            else {
+                const carLineItem = {
+                    id: cars.id,
+                    quantity: 1
+                };
+                shoppingCart.push(carLineItem);
+            }
+
+            json = JSON.stringify(shoppingCart);
+            localStorage.setItem('shoppingCart', json);    
+
+        });
         li.appendChild(button);
             
 return li;
 
 
 };
+
+export default createProducts;

@@ -8,19 +8,27 @@ import { calcOrderTotal } from '../common/utils.js';
 
 const tbody = document.querySelector('tbody');
 const orderTotalTd = document.getElementById('order-total');
+const placeOrderButton = document.getElementById('placeOrderButton');
+
+const json = localStorage.getItem('shoppingCart');
+let shoppingCart;
+if (json) {
+    shoppingCart = JSON.parse(json);
+
+
+} else {
+    cart = [];
+    
+};
 
 
 for (let i = 0; i < cart.length; i++) {
-    console.log('hi');
+    
     const cartLineItem = cart[i];
-    console.log(carList);
-    console.log(cartLineItem.id);
+    
     const carInCart = findById(carList, cartLineItem.id);
     
     const putThisInCartDom = renderCartItems(cartLineItem, carInCart);
-
-    console.log(carInCart);
-    console.log(putThisInCartDom);
 
     tbody.appendChild(putThisInCartDom);
     
@@ -28,3 +36,14 @@ for (let i = 0; i < cart.length; i++) {
 
 const finalOrderTotal = calcOrderTotal(carList, cart);
 orderTotalTd.textContent = finalOrderTotal;
+
+if (shoppingCart.length === 0) {
+    placeOrderButton.disabled = true;
+}
+else {
+    placeOrderButton.addEventListener('click', () => {
+        // alert('Order placed ')
+        localStorage.removeItem('shoppingCart');
+        window.location = '../index.html';
+    })
+};

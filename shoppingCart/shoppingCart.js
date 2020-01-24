@@ -2,11 +2,12 @@ import renderCartItems from './render-line-items.js';
 import { findById } from '../common/utils.js';
 import carList from '../data/cars.js';
 import cart from '../data/cart.js';
+import { calcOrderTotal } from '../common/utils.js';
 
 
 
 const tbody = document.querySelector('tbody');
-;
+const orderTotalTd = document.getElementById('order-total');
 
 
 for (let i = 0; i < cart.length; i++) {
@@ -14,8 +15,8 @@ for (let i = 0; i < cart.length; i++) {
     const cartLineItem = cart[i];
     console.log(carList);
     console.log(cartLineItem.id);
-    const carInCart = findById(cartLineItem.id, carList);
-    console.log(carInCart);
+    const carInCart = findById(carList, cartLineItem.id);
+    
     const putThisInCartDom = renderCartItems(cartLineItem, carInCart);
 
     console.log(carInCart);
@@ -24,3 +25,6 @@ for (let i = 0; i < cart.length; i++) {
     tbody.appendChild(putThisInCartDom);
     
 }
+
+const finalOrderTotal = calcOrderTotal(carList, cart);
+orderTotalTd.textContent = finalOrderTotal;

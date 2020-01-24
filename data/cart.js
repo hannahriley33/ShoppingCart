@@ -1,12 +1,12 @@
 const cart = [{
     id: 'jetta',
-    quantity: 2
+    quantity: 1
 }, {
     id: 'rav4',
-    quantity: 1,
+    quantity: 0,
 }, {
     id: 'tacoma',
-    quantity: 3
+    quantity: 1
 }];
 
 export default cart;

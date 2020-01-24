@@ -2,6 +2,8 @@
 // import example from '../src/example.js';
 import { findById } from "../common/utils.js"
 import carList from "../data/cars.js"
+import { calcOrderTotal } from '../common/utils.js'
+import cart from '../data/cart.js'
 
 const test = QUnit.test;
 
@@ -19,8 +21,21 @@ test('time to test findById function', function(assert) {
     };
     //Act 
     // Call the function you're testing and set the result to a const
-    const result = findById(someId, carList);
+    const result = findById(carList, someId);
     //Assert
     // Make assertions about what is expected valid result
     assert.deepEqual(result, expected);
+});
+
+test('time to test a calcOrderTotal', function(assert) {
+    //Arrange
+    // Set up your parameters and expectations
+    
+    const expected1 = 59000;
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const total = calcOrderTotal(carList, cart);
+    //Assert
+    // Make assertions about what is expected valid result
+    assert.equal(expected1, total);
 });

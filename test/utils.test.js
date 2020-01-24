@@ -2,8 +2,9 @@
 // import example from '../src/example.js';
 import { findById } from "../common/utils.js"
 import carList from "../data/cars.js"
-import { calcOrderTotal } from '../common/utils.js'
+import { calcOrderTotal, calcLineItem } from '../common/utils.js'
 import cart from '../data/cart.js'
+
 
 const test = QUnit.test;
 
@@ -38,4 +39,19 @@ test('time to test a calcOrderTotal', function(assert) {
     //Assert
     // Make assertions about what is expected valid result
     assert.equal(expected1, total);
+});
+
+test('time to test calcLineItem', function(assert) {
+    //Arrange
+    // Set up your parameters and expectations
+    const quantity = 1;
+    const price = 24000;
+    const expected2 = 24000;
+
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const calc = calcLineItem(quantity, price);
+    //Assert
+    // Make assertions about what is expected valid result
+    assert.equal(calc, expected2);
 });

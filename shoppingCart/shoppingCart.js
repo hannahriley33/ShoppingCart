@@ -10,24 +10,26 @@ const tbody = document.querySelector('tbody');
 const orderTotalTd = document.getElementById('order-total');
 const placeOrderButton = document.getElementById('placeOrderButton');
 
-const json = localStorage.getItem('shoppingCart');
+const json = localStorage.getItem('SHOPPINGCART');
 let shoppingCart;
 if (json) {
     shoppingCart = JSON.parse(json);
-
+console.log(shoppingCart)
 
 } else {
-    cart = [];
+    shoppingCart = [];
     
 };
 
 
-for (let i = 0; i < cart.length; i++) {
+for (let i = 0; i < shoppingCart.length; i++) {
     
-    const cartLineItem = cart[i];
+    const cartLineItem = shoppingCart[i];
+    
+    console.log(carList, 'literally')
+    console.log(cartLineItem.id, 'hi')
     
     const carInCart = findById(carList, cartLineItem.id);
-    
     const putThisInCartDom = renderCartItems(cartLineItem, carInCart);
 
     tbody.appendChild(putThisInCartDom);
@@ -42,8 +44,9 @@ if (shoppingCart.length === 0) {
 }
 else {
     placeOrderButton.addEventListener('click', () => {
-        // alert('Order placed ')
-        localStorage.removeItem('shoppingCart');
+        alert('Order placed ' + JSON.stringify(shoppingCart));
+        localStorage.removeItem('SHOPPINGCART');
+
         window.location = '../index.html';
     })
 };

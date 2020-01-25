@@ -1,7 +1,7 @@
 const jetta = {
     id: 'jetta',
     name: 'VW Jetta',
-    image: 'assets/jettaPic.png',
+    image: './assets/jettaPic.png',
     description: 'A stylish 4 door sedan perfect for suburban living.',
     category: 'sedan',
     price: 24000.00,

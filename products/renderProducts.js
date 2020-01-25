@@ -1,6 +1,7 @@
-import { findById } from "../common/utils";
+import { findById } from '../common/utils.js';
+// import carList from '../data/cars.js';
 
-export default function createProducts(cars) {
+export default function createProducts(carList) {
 
     const li = document.createElement('li');
         
@@ -8,59 +9,61 @@ export default function createProducts(cars) {
 
     
     const img = document.createElement('img');
-        img.src = cars.image;
-        img.alt = cars.name + ' image';
+        img.src = carList.image;
+        img.alt = carList.name + ' image';
         li.appendChild(img);
 
 
     const h2 = document.createElement('h2');
        
-        h2.textContent = cars.name;
+        h2.textContent = carList.name;
         li.appendChild(h2);
 
     const p = document.createElement('p');
        
-        p.textContent = cars.description;
+        p.textContent = carList.description;
         li.appendChild(p);
 
     const aside = document.createElement('aside');
         
-        aside.textContent = cars.category;
+        aside.textContent = carList.category;
         li.appendChild(aside);
 
     const h4 = document.createElement('h4');
        
-        h4.textContent = cars.price;
+        h4.textContent = carList.price;
         li.appendChild(h4);
 
     const button = document.createElement('button');
         button.textContent = 'Select';
-        button.value = cars.id;
+        button.value = carList.id;
+        
         button.addEventListener('click', () =>  {
-            let json = localStorage.getItem('shoppingCart');
+            let json = localStorage.getItem('SHOPPINGCART');
             let shoppingCart;
+           
             if (json) {
-                cart = JSON.parse(json);
+                shoppingCart = JSON.parse(json);
             }
             else {
-                cart = [];
+                shoppingCart = [];
             }
-
-            let carLineItem = findById(shoppingCart, cars.id);
-            
+console.log(shoppingCart);
+            let carLineItem = findById(shoppingCart,carList);
+            console.log(carList.id);
             if (carLineItem) {
-                carLineItem.quantity++
+                carLineItem.quantity++;
             }
             else {
                 const carLineItem = {
-                    id: cars.id,
+                    id: carList.id,
                     quantity: 1
                 };
                 shoppingCart.push(carLineItem);
             }
 
             json = JSON.stringify(shoppingCart);
-            localStorage.setItem('shoppingCart', json);    
+            localStorage.setItem('SHOPPINGCART', json);    
 
         });
         li.appendChild(button);

@@ -1,5 +1,5 @@
-import cart from "../data/cart.js";
-import carList from "../data/cars.js";
+import cart from '../data/cart.js';
+import carList from '../data/cars.js';
 
 export const findById = (someArray, itemId) => {
      // loop over someArray

@@ -1,76 +1,66 @@
-import { findById } from '../common/utils.js';
+import { findById } from "../common/utils.js";
 // import carList from '../data/cars.js';
 
-export default function createProducts(carList) {
+export default function createProducts(car) {
+  const li = document.createElement("li");
 
-    const li = document.createElement('li');
-        
+  const img = document.createElement("img");
+  img.src = car.image;
+  img.alt = car.name + " image";
+  li.appendChild(img);
 
+  const h2 = document.createElement("h2");
 
-    
-    const img = document.createElement('img');
-        img.src = carList.image;
-        img.alt = carList.name + ' image';
-        li.appendChild(img);
+  h2.textContent = car.name;
+  li.appendChild(h2);
 
+  const p = document.createElement("p");
 
-    const h2 = document.createElement('h2');
-       
-        h2.textContent = carList.name;
-        li.appendChild(h2);
+  p.textContent = car.description;
+  li.appendChild(p);
 
-    const p = document.createElement('p');
-       
-        p.textContent = carList.description;
-        li.appendChild(p);
+  const aside = document.createElement("aside");
 
-    const aside = document.createElement('aside');
-        
-        aside.textContent = carList.category;
-        li.appendChild(aside);
+  aside.textContent = car.category;
+  li.appendChild(aside);
 
-    const h4 = document.createElement('h4');
-       
-        h4.textContent = carList.price;
-        li.appendChild(h4);
+  const h4 = document.createElement("h4");
 
-    const button = document.createElement('button');
-        button.textContent = 'Select';
-        button.value = carList.id;
-        
-        button.addEventListener('click', () =>  {
-            let json = localStorage.getItem('SHOPPINGCART');
-            let shoppingCart;
-           
-            if (json) {
-                shoppingCart = JSON.parse(json);
-            }
-            else {
-                shoppingCart = [];
-            }
-console.log(shoppingCart);
-            let carLineItem = findById(shoppingCart,carList);
-            console.log(carList.id);
-            if (carLineItem) {
-                carLineItem.quantity++;
-            }
-            else {
-                const carLineItem = {
-                    id: carList.id,
-                    quantity: 1
-                };
-                shoppingCart.push(carLineItem);
-            }
+  h4.textContent = car.price;
+  li.appendChild(h4);
 
-            json = JSON.stringify(shoppingCart);
-            localStorage.setItem('SHOPPINGCART', json);    
+  const button = document.createElement("button");
+  button.textContent = "Select";
+  button.value = car.id;
 
-        });
-        li.appendChild(button);
-            
-return li;
+  button.addEventListener("click", () => {
+    const cartJson = localStorage.getItem("SHOPPINGCART");
+    let shoppingCart = [];
+    const lineItem = {
+      id: car.id,
+      quantity: 1
+    };
 
+    if (cartJson) {
+      shoppingCart = JSON.parse(cartJson);
+      let existingLineItem = findById(shoppingCart, car.id);
 
-};
+      if (existingLineItem) {
+        const lineItemIndex = shoppingCart.indexOf(existingLineItem);
+        shoppingCart[lineItemIndex].quantity++;
+      }
+      else {
+        shoppingCart.push(lineItem);
+      }
+    }
+    else {
+      shoppingCart.push(lineItem);
+    }
 
+    localStorage.setItem("SHOPPINGCART", JSON.stringify(shoppingCart));
+  });
 
+  li.appendChild(button);
+
+  return li;
+}

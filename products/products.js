@@ -5,7 +5,7 @@ import createProducts from "./renderProducts.js"
 const listItems = document.getElementById('placeHere');
 
 for (let i = 0; i < carList.length; i++) {
-    const cars = carList[i];
-    const putOnDom = createProducts(cars);
+    const car = carList[i];
+    const putOnDom = createProducts(car);
     listItems.appendChild(putOnDom);
 };

@@ -34,7 +34,7 @@ test('time to test a calcOrderTotal', function(assert) {
     //Arrange
     // Set up your parameters and expectations
     
-    const expected1 = 59000;
+    const expected1 = 3;
     //Act 
     // Call the function you're testing and set the result to a const
     const total = calcOrderTotal(carList, cart);

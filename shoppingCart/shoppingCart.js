@@ -36,7 +36,7 @@ for (let i = 0; i < shoppingCart.length; i++) {
     
 }
 
-const finalOrderTotal = calcOrderTotal(carList, cart);
+const finalOrderTotal = calcOrderTotal(shoppingCart);
 orderTotalTd.textContent = finalOrderTotal;
 
 if (shoppingCart.length === 0) {

@@ -1,4 +1,3 @@
-import cart from '../data/cart.js';
 import carList from '../data/cars.js';
 
 export const findById = (someArray, itemId) => {
@@ -23,16 +22,16 @@ export const calcLineItem = (quantity, amount) => {
 
 };
 
-export const calcOrderTotal = (someArray, someOtherArray) => {
+export const calcOrderTotal = (shoppingCartArray) => {
     let orderTotal = 0;
 
-    for (let i=0; i<cart.length; i++) {
-        const carLineItem = cart[i];
+    for (let i=0; i<shoppingCartArray.length; i++) {
+        const carLineItem = shoppingCartArray[i];
         
         const carSelected = findById(carList, carLineItem.id);
-       
+        
         const lineTotal = calcLineItem(carLineItem.quantity, carSelected.price);
-
+        
         orderTotal += lineTotal;
     }
     return orderTotal;
